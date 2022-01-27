@@ -7,14 +7,15 @@ import { v4 as uuid } from 'uuid';
 import Connection from "./database/db.js";
 import DefaultData from './default.js';
 import Routes from './routes/routes.js';
-import App from "../src/App.js";
-dotenv.config()
-
+dotenv.config();
 const app = express();
 
 app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(cors());
+app.get("/",(req,res)=>{
+    res.send("Working correctly")
+})
 app.use('/', Routes);
 
 
